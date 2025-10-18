@@ -1,1 +1,21 @@
-<p>city works!</p>
+<h1>Cities</h1>
+<table class = "table table-striped">
+    <thead>        
+        <td>Id</td>
+        <td>country</td>
+        <td>name</td>
+        <td>latitude</td>
+        <td>longitude</td>
+    </thead>
+    <tbody>
+        @for (city of cities; track $index) {
+            <tr>
+                <td>{{ city.id}}</td>
+                <td>{{ city.countryIdentifier}}</td>
+                <td>{{ city.name}}</td>
+                <td>{{ city.latitude}}</td>
+                <td>{{ city.longitude}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
