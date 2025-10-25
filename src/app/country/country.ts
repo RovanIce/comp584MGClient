@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CountryData } from './country-data';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
@@ -11,11 +11,18 @@ import { RouterLink } from '@angular/router';
   templateUrl: './country.html',
   styleUrl: './country.scss'
 })
-export class Country {
+export class Country implements OnInit {
     countries: CountryData[] = [];
-    constructor(http: HttpClient) {
-    http.get<CountryData[]>(environment.apiurl+"api/Countries").subscribe(result => {
-      this.countries= result;
+    constructor(private http: HttpClient) {  }
+
+  ngOnInit(): void {
+    this.getData();
+  }
+  
+  getData() {
+    this.http.get<CountryData[]>(environment.apiurl+"api/Countries").subscribe({
+      next: result => this.countries= result,
+      error: e => console.log(e)
     });
   }
 

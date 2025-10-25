@@ -1,4 +1,5 @@
 <h1>Countries</h1>
+@if (countries.length > 0) {
 <table class = "table table-striped">
     <thead>        
         <td>Id</td>
@@ -17,3 +18,6 @@
         }
     </tbody>
 </table>
+} @else {
+    <p>try again</p>
+}

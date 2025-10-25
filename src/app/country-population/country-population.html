@@ -1,1 +1,7 @@
-<p>country-population works!</p>
+<h1>Country Population</h1>
+@if(country_pop) {
+<p>{{country_pop.name}} has a population of {{country_pop.population}}.</p>
+}
+<div>
+    <a [routerLink]="['/country']">Countries</a>
+</div>
