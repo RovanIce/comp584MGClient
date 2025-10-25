@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import { CountryData } from './country-data';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.development';
@@ -18,12 +18,11 @@ export class Country implements OnInit {
   ngOnInit(): void {
     this.getData();
   }
-  
+
   getData() {
     this.http.get<CountryData[]>(environment.apiurl+"api/Countries").subscribe({
       next: result => this.countries= result,
       error: e => console.log(e)
     });
   }
-
 }
