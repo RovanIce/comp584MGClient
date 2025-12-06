@@ -3,8 +3,15 @@
 <button mat-icon-button [routerLink]="['/']">
         <mat-icon>home</mat-icon>
     </button>
-<a mat-flat-button color="primary" [routerLink]="['/weather']">Weather</a>
-<a mat-flat-button color="primary" [routerLink]="['/city']">City</a>
-<a mat-flat-button color="primary" [routerLink]="['/country']">Country</a>
+    <a mat-flat-button color="primary" [routerLink]="['/weather']">Weather</a>
+    <a mat-flat-button color="primary" [routerLink]="['/city']">City</a>
+    <a mat-flat-button color="primary" [routerLink]="['/country']">Country</a>
+    <span class="separator"></span>
+    @if(authservice.IsAuthenticated()){
+        <a mat-flat-button color="primary" (click)="authservice.Logout()">Logout</a>
+    }
+    @else {
+        <a mat-flat-button color="primary" [routerLink]="['/login']">Login</a>
+    }
 </mat-toolbar>
 </header>
