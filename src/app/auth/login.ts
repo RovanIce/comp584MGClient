@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AuthService } from './auth-service';
 import { LoginRequest } from './login-request';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { LoginRequest } from './login-request';
   styleUrl: './login.scss'
 })
 export class Login implements OnInit {
- constructor(private authService: AuthService){
+ constructor(private authService: AuthService, private router: Router){
  }
  form!: UntypedFormGroup;
  ngOnInit(): void {
@@ -27,6 +28,7 @@ export class Login implements OnInit {
     this.authService.Login(loginrequest).subscribe({
       next: result => {
         console.log(result);
+        this.router.navigate(['/']);
       },
       error: result =>{
         console.log("Error" + result);

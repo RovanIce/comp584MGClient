@@ -7,7 +7,7 @@
     <a mat-flat-button color="primary" [routerLink]="['/city']">City</a>
     <a mat-flat-button color="primary" [routerLink]="['/country']">Country</a>
     <span class="separator"></span>
-    @if(authservice.IsAuthenticated()){
+    @if(isloggedin){
         <a mat-flat-button color="primary" (click)="authservice.Logout()">Logout</a>
     }
     @else {
